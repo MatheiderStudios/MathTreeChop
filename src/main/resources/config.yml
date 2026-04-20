@@ -1,0 +1,79 @@
+# Idioma padrão carregado da pasta /language do plugin.
+language: pt-BR
+
+# Permissões base do plugin.
+permissions:
+  use: math.treechop.use
+  command: math.treechop.command
+  reload: math.treechop.command.reload
+  bypass-slowdown: math.treechop.bypass.slowdown
+  bypass-durability: math.treechop.bypass.durability
+  bypass-tool: math.treechop.bypass.tool
+
+general:
+  enabled: true
+  allow-creative: false
+  disable-while-sneaking: false
+  player-target-range: 6
+  cache-ttl-ticks: 10
+
+tools:
+  require-tool: true
+  allowed-materials:
+    - WOODEN_AXE
+    - STONE_AXE
+    - IRON_AXE
+    - GOLDEN_AXE
+    - DIAMOND_AXE
+    - NETHERITE_AXE
+  damage:
+    enabled: true
+    count-only-logs: true
+
+mining-slowdown:
+  enabled: true
+  refresh-ticks: 2
+  per-tree-block-percent: 0.5
+  max-percent: 95.0
+  count-logs: true
+  count-leaves: true
+
+tree-detection:
+  min-logs: 1
+  min-leaves: 4
+  max-logs: 512
+  search-radius-horizontal: 1
+  search-radius-upward: 1
+  require-leaves: true
+  leaf-search-radius: 6
+  ignore-persistent-leaves: true
+  extra-blocks:
+    vines: true
+    cocoa: true
+    bee-nests: true
+
+animation:
+  enabled: true
+  fall-duration-ticks: 54
+  bounce-duration-ticks: 18
+  bounce-angle: 7.0
+  duration:
+    per-log-percent: 1.0
+    max-additional-percent: 150.0
+  view-range: 64.0
+  interpolation-duration: 3
+  brightness:
+    sky: -1
+    block: -1
+  sounds:
+    enabled: true
+    start-sound: BLOCK_WOOD_BREAK
+    start-volume: 1.0
+    start-pitch: 0.8
+    impact-sound: ENTITY_GENERIC_BIG_FALL
+    impact-volume: 1.0
+    impact-pitch: 0.75
+  drops:
+    spawn-on-impact: true
+    spread-horizontal: 0.2
+    velocity-y: 0.25

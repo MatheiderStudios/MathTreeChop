@@ -1,0 +1,33 @@
+name: MathTreeChop
+version: 0.0.1
+main: com.matheider.MathTreeChop.MathTreeChopPlugin
+api-version: '1.21'
+author: Matheider
+description: Simula árvores tombando em uma animação inspirada em Panda's Falling Trees.
+website: https://github.com/ThePandaOliver/Pandas-Falling-Trees
+commands:
+  mathtreechop:
+    description: Comando principal do MathTreeChop.
+    usage: /mathtreechop [reload]
+    aliases:
+      - mathtrc
+    permission: math.treechop.command
+permissions:
+  math.treechop.use:
+    description: Permite usar o sistema principal do plugin.
+    default: true
+  math.treechop.command:
+    description: Permite usar o comando principal.
+    default: op
+  math.treechop.command.reload:
+    description: Permite recarregar o plugin.
+    default: op
+  math.treechop.bypass.slowdown:
+    description: Ignora a lentidão dinâmica de mineração.
+    default: false
+  math.treechop.bypass.durability:
+    description: Ignora o dano extra do machado.
+    default: false
+  math.treechop.bypass.tool:
+    description: Ignora a exigência de ferramenta configurada.
+    default: false

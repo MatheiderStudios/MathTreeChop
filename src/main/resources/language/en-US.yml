@@ -1,0 +1,7 @@
+# Default messages in English.
+prefix: "&#2E8B57&lMathTreeChop &8» "
+command:
+  usage: "&7Use &f/mathtreechop reload"
+  no-permission: "&cYou do not have permission to do that."
+  reloaded: "&aConfiguration and language files reloaded."
+  version: "&7Plugin: &f%plugin% &8| &7Version: &f%version%"

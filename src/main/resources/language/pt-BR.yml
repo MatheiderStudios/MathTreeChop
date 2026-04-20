@@ -1,0 +1,7 @@
+# Mensagens padrão em português do Brasil.
+prefix: "&#2E8B57&lMathTreeChop &8» "
+command:
+  usage: "&7Use &f/mathtreechop reload"
+  no-permission: "&cVocê não tem permissão para isso."
+  reloaded: "&aConfigurações e idiomas recarregados."
+  version: "&7Plugin: &f%plugin% &8| &7Versão: &f%version%"
