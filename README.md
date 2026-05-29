@@ -1,4 +1,4 @@
-![MathTreeChop Banner](imagens/banner.png)
+![MathTreeChop Banner](https://github.com/MatheiderStudios/images-DONT-README/blob/main/banner.png?raw=true)
 
 A highly optimized tree-chopping plugin, 99% inspired by the *Panda's Falling Tree* mod, bringing a smooth, natural experience with custom animations to Minecraft servers.
 
@@ -6,7 +6,7 @@ A highly optimized tree-chopping plugin, 99% inspired by the *Panda's Falling Tr
 
 ## 🎬 Showcase
 
-![MathTreeChop Showcase](imagens/cortando_arvore_grande.gif)
+![MathTreeChop Showcase](https://github.com/MatheiderStudios/images-DONT-README/blob/main/cortando_arvore_grande.gif?raw=true)
 
 
 ---

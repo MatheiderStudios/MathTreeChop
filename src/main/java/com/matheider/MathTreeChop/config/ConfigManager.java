@@ -40,7 +40,8 @@ public final class ConfigManager {
                 config.getBoolean("general.allow-creative", false),
                 config.getBoolean("general.disable-while-sneaking", false),
                 config.getInt("general.player-target-range", 6),
-                Math.max(1, config.getInt("general.cache-ttl-ticks", 10))
+                Math.max(1, config.getInt("general.cache-ttl-ticks", 10)),
+                parseWorldNames(config.getStringList("general.blacklist-worlds"))
             ),
             new ToolSettings(
                 config.getBoolean("tools.require-tool", true),
@@ -62,6 +63,7 @@ public final class ConfigManager {
                 Math.max(1, config.getInt("tree-detection.max-logs", 512)),
                 Math.max(1, config.getInt("tree-detection.search-radius-horizontal", 1)),
                 Math.max(1, config.getInt("tree-detection.search-radius-upward", 1)),
+                config.getBoolean("tree-detection.any-log-with-leaves-is-tree", true),
                 config.getBoolean("tree-detection.require-leaves", true),
                 Math.max(1, config.getInt("tree-detection.leaf-search-radius", 6)),
                 config.getBoolean("tree-detection.ignore-persistent-leaves", true),
@@ -134,6 +136,20 @@ public final class ConfigManager {
         }
     }
 
+    private Set<String> parseWorldNames(List<String> values) {
+        if (values == null || values.isEmpty()) {
+            return Collections.emptySet();
+        }
+        Set<String> worldNames = new java.util.HashSet<>();
+        for (String value : values) {
+            if (value == null || value.isBlank()) {
+                continue;
+            }
+            worldNames.add(value.trim().toLowerCase(Locale.ROOT));
+        }
+        return Collections.unmodifiableSet(worldNames);
+    }
+
     public record PluginSettings(
         String language,
         PermissionSettings permissions,
@@ -160,7 +176,8 @@ public final class ConfigManager {
         boolean allowCreative,
         boolean disableWhileSneaking,
         int playerTargetRange,
-        int cacheTtlTicks
+        int cacheTtlTicks,
+        Set<String> blacklistWorlds
     ) {
     }
 
@@ -188,6 +205,7 @@ public final class ConfigManager {
         int maxLogs,
         int searchRadiusHorizontal,
         int searchRadiusUpward,
+        boolean anyLogWithLeavesIsTree,
         boolean requireLeaves,
         int leafSearchRadius,
         boolean ignorePersistentLeaves,

@@ -16,6 +16,9 @@ general:
   disable-while-sneaking: false
   player-target-range: 6
   cache-ttl-ticks: 10
+  blacklist-worlds:
+    - world_nether
+    - plotworld
 
 tools:
   require-tool: true
@@ -44,6 +47,7 @@ tree-detection:
   max-logs: 512
   search-radius-horizontal: 1
   search-radius-upward: 1
+  any-log-with-leaves-is-tree: true
   require-leaves: true
   leaf-search-radius: 6
   ignore-persistent-leaves: true

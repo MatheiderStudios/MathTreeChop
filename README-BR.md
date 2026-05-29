@@ -1,4 +1,4 @@
-![MathTreeChop Banner](imagens/banner.png)
+![MathTreeChop Banner](https://github.com/MatheiderStudios/images-DONT-README/blob/main/banner.png?raw=true)
 
 Um plugin de corte de árvores altamente otimizado, 99% inspirado no mod *Panda's Falling Tree*, trazendo uma experiência suave, natural e com animações personalizadas para servidores Minecraft.
 
@@ -6,7 +6,7 @@ Um plugin de corte de árvores altamente otimizado, 99% inspirado no mod *Panda'
 
 ## 🎬 Showcase
 
-![MathTreeChop Showcase](imagens/cortando_arvore_grande.gif)
+![MathTreeChop Showcase](https://github.com/MatheiderStudios/images-DONT-README/blob/main/cortando_arvore_grande.gif?raw=true)
 
 ---
 

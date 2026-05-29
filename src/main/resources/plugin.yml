@@ -1,5 +1,5 @@
 name: MathTreeChop
-version: 0.0.1
+version: 0.0.2
 main: com.matheider.MathTreeChop.MathTreeChopPlugin
 api-version: '1.21'
 author: Matheider

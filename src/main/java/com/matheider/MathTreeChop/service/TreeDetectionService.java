@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Locale;
 
 public final class TreeDetectionService {
 
@@ -48,6 +49,9 @@ public final class TreeDetectionService {
     public Optional<TreeStructure> detect(Block start, Player player) {
         ConfigManager.PluginSettings settings = this.plugin.configManager().settings();
         if (!settings.general().enabled()) {
+            return Optional.empty();
+        }
+        if (settings.general().blacklistWorlds().contains(start.getWorld().getName().toLowerCase(Locale.ROOT))) {
             return Optional.empty();
         }
         if (!settings.general().allowCreative() && player.getGameMode().name().equals("CREATIVE")) {
@@ -122,11 +126,11 @@ public final class TreeDetectionService {
 
     private TreeStructure buildTree(Block start, ConfigManager.TreeDetectionSettings detectionSettings, ConfigManager.MiningSlowdownSettings slowdownSettings) {
         Set<BlockKey> logs = gatherLogs(start, detectionSettings);
-        if (logs.size() < detectionSettings.minLogs()) {
+        if (logs.isEmpty()) {
             return null;
         }
         Set<BlockKey> leaves = gatherLeaves(start, logs, detectionSettings);
-        if (detectionSettings.requireLeaves() && leaves.size() < detectionSettings.minLeaves()) {
+        if (!isValidTreeShape(logs, leaves, detectionSettings)) {
             return null;
         }
         Set<BlockKey> extras = gatherExtras(start, logs, leaves, detectionSettings.extraBlocks());
@@ -143,6 +147,19 @@ public final class TreeDetectionService {
             slowdownCount += leaves.size();
         }
         return new TreeStructure(start.getWorld(), BlockKey.of(start), List.copyOf(blocks), Set.copyOf(allKeys), logs.size(), leaves.size(), extras.size(), slowdownCount);
+    }
+
+    private boolean isValidTreeShape(Set<BlockKey> logs, Set<BlockKey> leaves, ConfigManager.TreeDetectionSettings detectionSettings) {
+        if (detectionSettings.anyLogWithLeavesIsTree()) {
+            return !leaves.isEmpty();
+        }
+        if (logs.size() < detectionSettings.minLogs()) {
+            return false;
+        }
+        if (detectionSettings.requireLeaves() && leaves.size() < detectionSettings.minLeaves()) {
+            return false;
+        }
+        return true;
     }
 
     private void fillSnapshots(Block start, Set<BlockKey> keys, TreeBlockKind kind, List<TreeBlockSnapshot> blocks, Set<BlockKey> allKeys) {
